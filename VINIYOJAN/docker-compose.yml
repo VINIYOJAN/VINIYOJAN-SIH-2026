@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: nidhi
+      POSTGRES_USER: nidhi
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local_demo_only}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nidhi -d nidhi"]
+      interval: 5s
+      retries: 12
+  api:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://nidhi:${POSTGRES_PASSWORD:-local_demo_only}@postgres:5432/nidhi
+      JWT_SECRET: ${JWT_SECRET:-local-demo-replace-with-long-random-secret}
+      CORS_ORIGIN: http://localhost:5173
+      VAULT_DIR: /service/vault
+      MOCK_BANK_URL: http://mock-bank:8100
+      DEMO_MODE: 'true'
+      ENABLE_SCHEDULER: 'true'
+    volumes: [vault:/service/vault]
+    ports: ['8000:8000']
+    depends_on:
+      postgres: {condition: service_healthy}
+      mock-bank: {condition: service_started}
+  mock-bank:
+    build: ./mock-bank
+    ports: ['8100:8100']
+  web:
+    build: ./frontend
+    ports: ['5173:5173']
+    depends_on: [api]
+volumes:
+  pgdata:
+  vault:

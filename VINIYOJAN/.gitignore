@@ -1,0 +1,10 @@
+.env
+.env.local
+*.db
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+backend/vault/
+.vscode/
+.DS_Store
