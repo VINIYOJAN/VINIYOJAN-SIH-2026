@@ -132,7 +132,6 @@ Open the local URL printed by Vite. For backend setup, install `backend/requirem
 | Resource | Description |
 |---|---|
 | [Architecture](VINIYOJAN/docs/architecture.md) | System design and components |
-| [Demo Script](VINIYOJAN/docs/demo-script.md) | Project demonstration guide |
 | [Implementation Status](VINIYOJAN/docs/IMPLEMENTATION_STATUS.md) | Current implementation details |
 | [Detailed README](VINIYOJAN/README.md) | Application-level documentation |
 
