@@ -39,12 +39,4 @@ Scheduler --> Alerts[Console Alerts]
 
 **Release-aware workflow:** separate college intent from officer decision; expand to legally required multi-party sign-off before actual release.
 
-## Next engineering milestones
 
-1. Alembic migrations, strong database constraints and retry-safe transactional workflow transitions.
-2. Multi-stage release clearances and document checklist based on current applicable rules.
-3. File malware scanner, rate limits, encrypted S3, signed upload workflow and safe inline renderer.
-4. Offline OCR queue with confidence per field, comparison highlighting and image preprocessing.
-5. Background workers, resilient email queue, delivery receipts and timezone-aware scheduling.
-6. Accessibility testing, multilingual strings, observability and performance/load tests.
-7. Org-level SSO/MFA, least-privilege roles, immutable append-only audit sink and security review.
