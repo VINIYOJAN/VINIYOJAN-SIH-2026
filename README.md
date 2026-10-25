@@ -77,7 +77,7 @@ VINIYOJAN-SIH-2026/
     ├── .env.example             # Environment template
     ├── .gitignore
     ├── README.md                # Detailed project documentation
-    └── SUBMISSION_CHECKLIST.md
+    
 ```
 
 ## Getting Started
